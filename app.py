@@ -8,10 +8,13 @@ db = mysql.connector.connect(
 
 cursor = db.cursor()
 
+user = None
+
 
 def home_menu():
     home_menu_input = int(input("0 => Register\n1 => Login\n"))
     return home_menu_input
+
 
 def login():
     email = input("Enter your email: ")
@@ -29,14 +32,14 @@ def login():
 
     if user:
         print(f'\nUser Authenticated: {user[1]} {user[2]}\n')
-        logged_menu()
+        add_project()
 
     else:
         print("Incorrect email or password.")
 
 
-def logged_menu():
-    print('Project Details:')
+def add_project():
+    print('*** Project Details ***\n')
 
     title = input("Enter title: ")
     while not title:
@@ -45,11 +48,20 @@ def logged_menu():
     details = input("Enter Details: ")
     while not details:
         details = input("Enter Details: ")
-    
+
     total_target = input("Enter Total Target: ")
     while not total_target:
         total_target = input("Enter Total Target: ")
-    
+
+    end_date = input("Enter End Date: ")
+    while not end_date:
+        end_date = input("Enter End Date: ")
+
+    sql = "INSERT INTO projects (user_id, title, details, total_target, end_date) VALUES (%s, %s, %s, %s, %s)"
+    val = (user[0], title, details, total_target, end_date)
+    cursor.execute(sql, val)
+    print("*** Project Added Successfully ***")
+    return (user[0], title, details, total_target, end_date)
 
 
 def register():
@@ -83,10 +95,10 @@ def register():
     sql = "INSERT INTO users (first_name, last_name, email, password, phone_no) VALUES (%s, %s, %s, %s, %s)"
     val = (first_name, last_name, email, password, phone_no)
     cursor.execute(sql, val)
-    return (first_name, last_name, email, password, phone_no,)
+    return (first_name, last_name, email, password, phone_no)
 
 
-while True:
+while not user:
     option = home_menu()
     if option == 0:
         register()
