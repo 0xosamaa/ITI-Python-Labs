@@ -1,4 +1,5 @@
 import math
+import re
 
 
 def vowels_count(text):
@@ -73,6 +74,26 @@ PI = math.pi
 def area_circum(radius):
     return (round(PI*(radius**2), 3), round(2*PI*radius, 3))
 
+
 area, circumference = area_circum(6)
 print(f"Area: {area}")
 print(f"Circumference: {circumference}")
+
+
+def get_name_email():
+    name = input("Enter your name: ")
+    while not name:
+        name = input("Enter your name: ")
+
+    email = input("Enter your email: ")
+    while not email:
+        email = input("Enter your email: ")
+    pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+    while not (re.match(pat, email)):
+        email = input("Enter a valid email: ")
+    return (name, email)
+
+
+name, email = get_name_email()
+print(f"Name: {name}")
+print(f"Email: {email}")
