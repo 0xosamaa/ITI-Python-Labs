@@ -21,11 +21,11 @@ inputs = []
 for i in range(5):
     inputs.append(input(f"Enter element number {i+1}:\n"))
 
-def reverse(inputs):
+def reverse_list(inputs):
     inputs.sort(reverse=True)
     return inputs
 
-print(reverse())
+print(reverse_list())
 
 def fizz_buzz(num):
     if not(num % 5):
