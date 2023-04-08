@@ -104,3 +104,23 @@ def occ_count(word, occ):
 
 print(occ_count("Hello ITI Hi iti Welcome ITI Greetings iti", "iti"))
 
+
+def max_ordered(text):
+    curr_substring = []
+    max_substring = []
+    for i, char in enumerate(text):
+        if i >= len(text)-1:
+            if curr_substring == max_substring:
+                max_substring.append(char)
+            return "".join(max_substring)
+        if char < text[i+1]:
+            curr_substring.append(char)
+        else:
+            if curr_substring == max_substring:
+                max_substring.append(char)
+            curr_substring = []
+        if len(max_substring) < len(curr_substring):
+            max_substring = curr_substring
+
+
+print(max_ordered("abcdabcdefababcabcdefgh"))
