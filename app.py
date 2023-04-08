@@ -1,3 +1,6 @@
+import math
+
+
 def vowels_count(text):
     count = 0
     for char in text:
@@ -23,11 +26,14 @@ inputs = []
 for i in range(5):
     inputs.append(input(f"Enter element number {i+1}:\n"))
 
+
 def reverse_list(inputs):
     inputs.sort(reverse=True)
     return inputs
 
-print(reverse_list())
+
+print(reverse_list(inputs))
+
 
 def fizz_buzz(num):
     if not (num % 5):
