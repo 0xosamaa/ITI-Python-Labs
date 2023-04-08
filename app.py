@@ -24,3 +24,18 @@ def user_inputs():
     return inputs
 
 print(user_inputs())
+
+def fizz_buzz(num):
+    if not(num % 5):
+        if not(num % 3):
+            return "FizzBuzz"
+        return "Buzz"
+    
+    if not(num % 3):
+        if not(num % 5):
+            return "FizzBuzz"
+        return "Fizz"
+    
+    return None
+
+print(fizz_buzz(15))
