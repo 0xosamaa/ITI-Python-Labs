@@ -15,3 +15,12 @@ def numbers_list(length, start):
 
 
 print(numbers_list(10, 5))
+
+def user_inputs():
+    inputs = []
+    for i in range(5):
+        inputs.append(input(f"Enter element number {i+1}:\n"))
+    inputs.sort(reverse=True)
+    print(inputs)
+
+user_inputs()
