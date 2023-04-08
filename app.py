@@ -16,14 +16,16 @@ def numbers_list(length, start):
 
 print(numbers_list(10, 5))
 
-def user_inputs():
-    inputs = []
-    for i in range(5):
-        inputs.append(input(f"Enter element number {i+1}:\n"))
+
+inputs = []
+for i in range(5):
+    inputs.append(input(f"Enter element number {i+1}:\n"))
+
+def reverse(inputs):
     inputs.sort(reverse=True)
     return inputs
 
-print(user_inputs())
+print(reverse())
 
 def fizz_buzz(num):
     if not(num % 5):
@@ -39,3 +41,4 @@ def fizz_buzz(num):
     return None
 
 print(fizz_buzz(15))
+
