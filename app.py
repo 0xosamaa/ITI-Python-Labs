@@ -21,6 +21,6 @@ def user_inputs():
     for i in range(5):
         inputs.append(input(f"Enter element number {i+1}:\n"))
     inputs.sort(reverse=True)
-    print(inputs)
+    return inputs
 
-user_inputs()
+print(user_inputs())
