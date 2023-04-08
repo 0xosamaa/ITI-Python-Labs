@@ -97,3 +97,10 @@ def get_name_email():
 name, email = get_name_email()
 print(f"Name: {name}")
 print(f"Email: {email}")
+
+
+def occ_count(word, occ):
+    return word.lower().count(occ)
+
+print(occ_count("Hello ITI Hi iti Welcome ITI Greetings iti", "iti"))
+
