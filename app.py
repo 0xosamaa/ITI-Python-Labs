@@ -65,3 +65,14 @@ def reverse_string(text):
 
 
 print(reverse_string(text))
+
+
+PI = math.pi
+
+
+def area_circum(radius):
+    return (round(PI*(radius**2), 3), round(2*PI*radius, 3))
+
+area, circumference = area_circum(6)
+print(f"Area: {area}")
+print(f"Circumference: {circumference}")
