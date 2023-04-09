@@ -1,16 +1,6 @@
 import mysql.connector
 from getpass import getpass
 
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="python_labs")
-
-cursor = db.cursor()
-
-user = None
-
 
 def login():
     print("\n*** Login ***\n")
@@ -227,7 +217,7 @@ def logout():
 
 
 def home_menu():
-    home_menu_input = int(input("0 => Register\n1 => Login\n2 => Exit\n"))
+    home_menu_input = input("0 => Register\n1 => Login\n2 => Exit\n")
     return home_menu_input
 
 
@@ -237,11 +227,30 @@ def logged_in_menu():
     return logged_in_input
 
 
-while not user:
-    option = home_menu()
-    if option == 0:
-        register()
-    elif option == 1:
-        login()
-    elif option == 2:
-        exit()
+def start():
+    db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="python_labs")
+
+    global cursor
+    global user
+
+    cursor = db.cursor()
+    user = None
+
+    while not user:
+        option = home_menu()
+        if option == "0":
+            register()
+        elif option == "1":
+            login()
+        elif option == "2":
+            exit()
+        else:
+            continue
+
+
+if __name__ == "__main__":
+    start()
